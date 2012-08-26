@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Basic single-column &middot; jQuery Masonry</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <link rel="stylesheet" href="../css/style.css" />
+  
+  
+  <!-- scripts at bottom of page -->
+
+</head>
+<body class="demos ">
+<div id="bg">
+  <section id="content">
+    
+<div id="container" class="clearfix">
+
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.32" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.33" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.34" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.35" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.36" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.37" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.38" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.39" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.40" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.41" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.42" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.43" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.44" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.45" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.46" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.47" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.48" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.49" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.50" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.51" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.52" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.53" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.54" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.55" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.56" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.57" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.59" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.60" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.61" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.63" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.64" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.65" class="box" />
+  <img src="/mymasonry/images/rattlesnake-canyon-lit-by-flashlight.jpg.66" class="box" />
+
+</div> <!-- #container -->
+<script src="../js/jquery-1.7.1.min.js"></script>
+<script src="../jquery.masonry.min.js"></script>
+<script>
+ $( document ).ready( function() {
+   var $container = $('#container');
+   var screenW = screen.width / 10;
+   var firstbg = $( '#container > .box' ).first().attr( 'src' );
+   $( '.box' ).width( screenW );
+   $( '#bg' ).css( 'backgroundImage', 'url(' + firstbg + ')' );
+    $container.imagesLoaded( function(){
+$('body').bind('contextmenu', function(e){
+    return false;
+}).mousedown(function(event) {
+	event.preventDefault();
+    switch (event.which) {
+      case 1:
+        break;
+      case 2:
+        break;
+      case 3:
+        $( '#content' ).css('display', 'block').masonry({
+          itemSelector: '.box'
+        }).animate({'opacity': '1'},500);
+        break;
+      default:
+        alert('You have a strange mouse');
+    }
+});
+// change bg on click
+    $( '.box' ).click( function() {
+      var img = $( this ).attr( 'src' );
+      $( '#bg' ).css({
+        'backgroundImage': 'url(' + img + ')',
+        'backgroundRepeat': 'no-repeat',
+        'backgroundPosition': 'top center',
+        'backgroundSize': '100%'
+      });
+      console.log( $( '#bg' ).css( 'backgroundImage' ) );
+      console.log( img );
+      $( '#content' ).animate( {'opacity': '0'}, 500 );
+    });
+   });
+   });
+</script>
+
+  </section> <!-- #content -->
+</div>
+</body>
+</html>
